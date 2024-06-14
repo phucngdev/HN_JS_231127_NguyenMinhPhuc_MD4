@@ -12,7 +12,7 @@ export const createNewTask = async (req: Request, res: Response) => {
     const result = await createNewTaskService(req.body);
     return res.status(201).json(result);
   } catch (error) {
-    return "lỗi server";
+    return res.status(500).json("Lỗi server");
   }
 };
 
@@ -21,7 +21,7 @@ export const updateTask = async (req: Request, res: Response) => {
     const result = await updateTaskService(req.params.id, req.body);
     return res.status(201).json(result);
   } catch (error) {
-    return "lỗi server";
+    return res.status(500).json("Lỗi server");
   }
 };
 
@@ -30,7 +30,7 @@ export const deleteTask = async (req: Request, res: Response) => {
     const result = await deleteTaskService(req.params.id);
     return res.status(201).json(result);
   } catch (error) {
-    return "lỗi server";
+    return res.status(500).json("Lỗi server");
   }
 };
 
@@ -39,7 +39,7 @@ export const getAllTask = async (req: Request, res: Response) => {
     const result = await getAllTaskService();
     return res.status(201).json(result);
   } catch (error) {
-    return "lỗi server";
+    return res.status(500).json("Lỗi server");
   }
 };
 
@@ -48,6 +48,6 @@ export const getOneTask = async (req: Request, res: Response) => {
     const result = await getOneTaskService(req.params.id);
     return res.status(201).json(result);
   } catch (error) {
-    return "lỗi server";
+    return res.status(500).json("Lỗi server");
   }
 };

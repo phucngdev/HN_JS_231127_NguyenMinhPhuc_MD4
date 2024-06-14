@@ -7,13 +7,13 @@ export const validate = async (
 ) => {
   try {
     const { status, task } = req.body;
-    if (!status || !task) {
+    if (status !== false || !task) {
       return res.status(400).json({
         message: "Vui lòng nhập đầy đủ thông tin",
       });
     }
     next();
   } catch (error) {
-    return "Lỗi server";
+    return res.status(500).json("Lỗi server");
   }
 };
